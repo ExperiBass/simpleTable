@@ -1,3 +1,3 @@
 module.exports = {
-    table: require('./src/simpletable')
+    simpleTable: require('./src/simpletable')
 }
