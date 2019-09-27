@@ -1,0 +1,39 @@
+<html>
+    <head>
+        
+    </head>
+
+    <body>
+        <input type="range" min="1" max="5" id="slider"><br>
+        <input type="button" value="click me!" onclick="myFunc()"><br>
+        <script src='../src/simpleTable.js'></script>
+        <script src='../src/randomString.js'></script>
+        <script>
+            let slider = document.getElementById('slider')
+            
+            function myFunc() {  
+                created.getCell(slider.value).innerText = `${randomString(4)}`
+            }
+
+        let created = new simpleTable({ 
+            rows: 5, 
+            cols: 5, 
+            id: 'simpleTable', 
+            style: {    
+                collapsedBorder: true, 
+                head: true, 
+                headHeight: '50px'
+            }
+        })
+        created.generate()
+        slider.max = created.length
+        let simple = document.getElementById(created.id)
+        let rows = created.getRows()
+
+        let cols = created.cells
+        
+        
+        </script>
+        <p id="demo"></p>
+    </body>
+</html>
