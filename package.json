@@ -1,11 +1,11 @@
 {
   "name": "simpletable",
   "version": "1.0.0",
-  "description": "Makes creating table simpler.",
+  "description": "Simple HTML Table generator.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "GingkathFox/ExperiBass",
+  "license": "GPL-3.0"
 }

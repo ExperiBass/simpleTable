@@ -1,0 +1,274 @@
+<html>
+    <head>
+        
+    </head>
+
+    <body>
+        <p>Drag me and click the buton to change the value of a cell!</p>
+        <input type="range" min="1" max="5" id="slider"> <p id="display">0</p><br>
+        <input type="button" value="click me!" onclick="myFunc()"><br>
+        <script>
+            let simpleTable = class {
+                        constructor({ rows = 2, cols = 2, id = 'simpletable', 
+                                    elem = 'nodejs', before = true, style: {
+                                                                        collapsedBorder = true, head = true, headHeight = "20px", 
+                                                                    }
+                                    }) 
+                            {
+
+                            // Checking parameters
+                            // Checking rows and columns
+                            if (!rows || isNaN(parseInt(rows))) {
+                                return console.error(`param rows is not a number`)
+                            }
+                            if (!cols || isNaN(parseInt(cols))) {
+                                return console.error(`param cols is not a number`)
+                            }
+                            // Checking ID
+                            if (typeof id !== 'string') {
+                                return console.error(`param id is not a string`)
+                            }
+                            // Checking headHeight
+                            if (!headHeight || typeof headHeight !== 'string') {
+                                return console.error(`param headHeight is not a string`)
+                            }
+                            // Checking elem
+                            if (typeof elem !== 'string') {
+                                return console.error(`param elem is not a string`)
+                            }
+                            // Clecking before
+                            if (typeof before !== 'boolean') {
+                                return console.error(`param before is not boolean`)
+                            }
+
+                            this.rows = rows
+                            this.cols = cols
+                            this.id = id
+                            this.collapsedBorder = collapsedBorder
+                            this.head = head
+                            this.headHeight = headHeight
+                            this.elem = elem
+                            this.before = before
+                            this.table
+                        }
+                        
+                        generate() {
+
+                            this.table = document.createElement('table')
+                            let e
+
+                                this.table.id = this.id
+                                this.table.style.border = '1px solid'
+                                if (this.collapsedBorder == true) {
+                                    this.table.style.borderCollapse = 'collapse' 
+                                } else {
+                                    this.table.style.borderCollapse = 'seperate'
+                                }
+                                
+                                for (let i = 0; i < this.rows; i++) { 
+                                    let row = this.table.insertRow()
+
+                                    for (let j = 0; j < this.cols; j++) {
+                                        
+                                        let cell = row.insertCell(j)
+                                        let style = cell.style
+                                        style.borderSpacing = '0px'
+
+                                        if (i + 1 == this.rows) {
+                                            style.borderBottom = 'none'    
+                                        } else {
+                                            style.textAlign = 'center'
+                                            style.borderBottom = '1px solid'
+                                        }
+                                        style.borderRight = '1px solid' 
+                                        style.padding = '3px 4px 3px 4px'
+
+                                        cell.innerText = `Cell ${j + 1}`
+                                    }
+                                }
+
+                                try {
+                                    e = document.getElementById(`${this.elem}`)
+                                } catch(err) {
+                                    return console.error(err)
+                                }
+                                
+                                if (this.before) {
+                                    document.body.insertBefore(this.table, e)
+                                } else {
+                                    document.body.insertAdjacentElement(this.table, e)
+                                }
+                                
+                        }
+
+                        getRows() {      
+                            return this.table.children[0].children
+                        }
+
+                        getCell(cellNo) {     
+                            return this.cells[cellNo - 1]
+                        }
+
+                        get cells() {
+                            let cells = []
+
+                            for (let i = 0; i < this.getRows().length; i++) {
+                                for (let j = 0; j < this.getRows().length; j++) {
+                                    cells.push(this.getRows()[i].children[j]) // Get all the cells and add them to a arrat
+                                }
+                            }
+                            return cells
+                        }
+
+                        get length() {
+                            return this.cells.length
+                        }
+                    }
+        </script>
+        <script>
+            function randomString(length) {
+                let chars = {
+                    0: '`',
+                    1: '1',
+                    2: '2',
+                    3: '3',
+                    4: '4',
+                    5: '5',
+                    6: '6',
+                    7: '7',
+                    8: '8',
+                    9: '9',
+                    10: '0',
+                    11: '-',
+                    12: '=',
+                    13: 'q',
+                    14: 'w',
+                    15: 'e',
+                    16: 'r',
+                    17: 't',
+                    18: 'y',
+                    19: 'u',
+                    20: 'i',
+                    21: 'o',
+                    22: 'p',
+                    23: '[',
+                    24: ']',
+                    25: '\\',
+                    26: 'a',
+                    27: 's',
+                    28: 'd',
+                    29: 'f',
+                    30: 'g',
+                    31: 'h',
+                    32: 'j',
+                    33: 'k',
+                    34: 'l',
+                    35: ';',
+                    36: "'",
+                    37: 'z',
+                    38: 'x',
+                    39: 'c',
+                    40: 'v',
+                    41: 'b',
+                    42: 'n',
+                    43: 'm',
+                    44: ',',
+                    45: '.',
+                    46: '/',
+                    47: '~',
+                    48: '!',
+                    49: '@',
+                    50: '#',
+                    51: '$',
+                    52: '%',
+                    53: '^',
+                    54: '&',
+                    55: '*',
+                    56: '(',
+                    57: ')',
+                    58: '_',
+                    59: '+',
+                    60: 'Q',
+                    61: 'W',
+                    62: 'E',
+                    63: 'R',
+                    64: 'T',
+                    65: 'Y',
+                    66: 'U',
+                    67: 'I',
+                    68: 'O',
+                    69: 'P',
+                    70: '{',
+                    71: '}',
+                    72: '|',
+                    73: 'A',
+                    74: 'S',
+                    75: 'D',
+                    76: 'F',
+                    77: 'G',
+                    78: 'H',
+                    79: 'J',
+                    80: 'K',
+                    81: 'L',
+                    82: ':',
+                    83: '"',
+                    84: 'Z',
+                    85: 'X',
+                    86: 'C',
+                    87: 'V',
+                    88: 'B',
+                    89: 'N',
+                    90: 'M',
+                    91: '<',
+                    92: '>',
+                    93: '?',
+                    94: ' '
+                }
+                let str = ''
+                let charLeng = Object.keys(chars).length
+                function getRandomInt(max) {
+                    return Math.floor(Math.random() * Math.floor(max))
+                }
+                for (let i = 0; i < length; i++) {
+                    let num = getRandomInt(charLeng)
+
+                    str += chars[num]
+                }
+                return str
+            }
+        </script>
+        <script>
+            let slider = document.getElementById('slider')
+            let display = document.getElementById('display')
+            display.innerText = `Cell ${slider.value}`
+            slider.oninput = function() {
+                
+                display.innerText = `Cell ${this.value}`
+            }
+            
+            function myFunc() {  
+                created.getCell(slider.value).innerText = `${randomString(4)}`
+            }
+
+        let created = new simpleTable({ 
+            rows: 5, 
+            cols: 5, 
+            id: 'simpleTable', 
+            style: {    
+                collapsedBorder: true, 
+                head: true, 
+                headHeight: '50px'
+            }
+        })
+        created.generate()
+        slider.max = created.length
+        let simple = document.getElementById(created.id)
+        let rows = created.getRows()
+
+        let cols = created.cells
+        
+        
+        </script>
+        <p id="demo"></p>
+    </body>
+</html>

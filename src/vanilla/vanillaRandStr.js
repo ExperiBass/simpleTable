@@ -1,5 +1,3 @@
-module.exports = randomString
-
 function randomString(length) {
     let chars = {
         0: '`',

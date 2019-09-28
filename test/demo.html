@@ -4,12 +4,19 @@
     </head>
 
     <body>
-        <input type="range" min="1" max="5" id="slider"><br>
+        <p>Drag me and click the buton to change the value of a cell!</p>
+        <input type="range" min="1" max="5" id="slider"> <p id="display">0</p><br>
         <input type="button" value="click me!" onclick="myFunc()"><br>
-        <script src='../src/simpleTable.js'></script>
-        <script src='../src/randomString.js'></script>
+        <script src='../src/vanilla/vanillaSimpleTable.js'></script>
+        <script src='../src/vanilla/vanillaRandStr.js'></script>
         <script>
             let slider = document.getElementById('slider')
+            let display = document.getElementById('display')
+            display.innerText = `Cell ${slider.value}`
+            slider.oninput = function() {
+                
+                display.innerText = `Cell ${this.value}`
+            }
             
             function myFunc() {  
                 created.getCell(slider.value).innerText = `${randomString(4)}`
@@ -18,7 +25,7 @@
         let created = new simpleTable({ 
             rows: 5, 
             cols: 5, 
-            id: 'simpleTable', 
+            id: 'simpleTable',
             style: {    
                 collapsedBorder: true, 
                 head: true, 
@@ -31,9 +38,9 @@
         let rows = created.getRows()
 
         let cols = created.cells
-        
+        console.log(created.elem)
         
         </script>
-        <p id="demo"></p>
+        <p id="nodejs">The table will be inserted after this text.</p>
     </body>
 </html>
