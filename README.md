@@ -3,7 +3,8 @@
  Simple HTML Table generator.
 
  ## USAGE
-    See (demo.html)[./test/demo.html].
+ 
+ See [demo.html](./test/demo.html).
 
  ## METHODS
 
