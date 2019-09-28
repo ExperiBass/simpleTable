@@ -1,9 +1,9 @@
-let simpleTable = class {
+let simpleTable = class { 
     constructor({ rows = 2, 
                     cols = 2, 
                     id = 'simpletable', 
                     elem = 'nodejs', 
-                    before = true, 
+                    before = false, 
                     style: {                                
                         borderCollapse = true, 
                         head = true, 
@@ -68,7 +68,7 @@ let simpleTable = class {
             let row = this.table.insertRow()
 
             for (let j = 0; j < this.cols; j++) {
-                // Creating cells
+                // Creating columns
                 let cell = row.insertCell(j)
                 let style = cell.style
                 style.borderSpacing = '0px'
@@ -102,10 +102,13 @@ let simpleTable = class {
     }
 
     getRows() {      
-        return this.table.children[0].children
+        return this.table.rows
     }
 
     getCell(cellNo) {     
+        if (CellNo - 1 == -1) {
+            return null
+        }
         return this.cells[cellNo - 1]
     }
 

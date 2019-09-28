@@ -10,6 +10,15 @@
         <script src='../src/vanilla/vanillaSimpleTable.js'></script>
         <script src='../src/vanilla/vanillaRandStr.js'></script>
         <script>
+            function func() {
+              console.log(`Hey, thanks for looking here! A bit of information is logged below!`)  
+              console.log(`Rows: ${rows.length},`)
+                console.log(rows)
+                console.log(`Columns: ${created.cols}, Cells: ${created.length}\n\`simpleTable.getCell()\` demo:`)
+                console.log(cell)
+                console.log(`Cell 2 Value: ${cell.innerHTML}`)
+            }
+            
             let slider = document.getElementById('slider')
             let display = document.getElementById('display')
             display.innerText = `Cell ${slider.value}`
@@ -26,6 +35,8 @@
             rows: 5, 
             cols: 5, 
             id: 'simpleTable',
+            elem: 'demo',
+            before: true,
             style: {    
                 collapsedBorder: true, 
                 head: true, 
@@ -35,12 +46,12 @@
         created.generate()
         slider.max = created.length
         let simple = document.getElementById(created.id)
-        let rows = created.getRows()
 
-        let cols = created.cells
-        console.log(created.elem)
+        let rows = created.getRows()
+        let cell = created.getCell(2)
         
+        func()
         </script>
-        <p id="nodejs">The table will be inserted after this text.</p>
+        <p id="demo">The table will be inserted after this text.</p>
     </body>
 </html>
