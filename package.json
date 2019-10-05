@@ -1,11 +1,29 @@
 {
   "name": "simpletable",
   "version": "1.0.0",
-  "description": "Simple HTML Table generator.",
+  "description": "A simple HTML Table generator.",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "GingkathFox/ExperiBass",
-  "license": "GPL-3.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GingkathFox/simpleTable.git"
+  },
+  "keywords": [
+    "HTML",
+    "Table",
+    "generator"
+  ],
+  "author": "gingkathfox",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/GingkathFox/simpleTable/issues"
+  },
+  "homepage": "https://github.com/GingkathFox/simpleTable#readme"
 }
