@@ -5,7 +5,7 @@
  ## INSTALLING
 
  ```bash
-    npm i --save simpletable
+    npm i --save simpletable-js
 ```
  ## USAGE
  

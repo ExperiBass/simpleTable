@@ -1,6 +1,6 @@
 {
-  "name": "simpletable",
-  "version": "1.0.0",
+  "name": "simpletable-js",
+  "version": "1.0.1",
   "description": "A simple HTML Table generator.",
   "main": "index.js",
   "dependencies": {},
