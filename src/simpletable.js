@@ -1,5 +1,3 @@
-//module.exports = simpleTable
-
 let simpleTable = class {
     constructor({ rows = 2, 
                     cols = 2, 
@@ -126,3 +124,4 @@ let simpleTable = class {
         return this.cells.length
     }
 }
+module.exports = simpleTable

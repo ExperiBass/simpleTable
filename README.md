@@ -2,6 +2,11 @@
  
  Simple HTML Table generator.
 
+ ## INSTALLING
+
+ ```bash
+    npm i --save simpletable
+```
  ## USAGE
  
  See [demo.html](./test/demo.html).
