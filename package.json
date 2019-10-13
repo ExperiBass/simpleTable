@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A simple HTML Table generator.",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
