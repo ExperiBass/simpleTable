@@ -46,7 +46,9 @@ let simpleTable = class {
         this.before = before
         this.table
     }
-    
+    /**
+     * simpleTable.generate() - Generates and displays the table.
+     */
     generate() {
         
         // Creating the table
@@ -100,13 +102,27 @@ let simpleTable = class {
             document.body.insertAdjacentElement(this.table, e)
         }       
     }
-
+    /**
+     * simpleTable.getRows() - Get all the rows in the table.
+     * @returns {HTMLTableRowElement} The rows in the table.
+     */
     getRows() {      
         return this.table.children[0].children
     }
-
-    getCell(cellNo) {     
-        return this.cells[cellNo - 1]
+    /**
+     * simpleTable.getRow() - Get the cells in a row.
+     * @param {Number} no The row number to get the cells of.
+     * @returns {[HTMLTableCellElement]} A array of cells in the row.
+     */
+    getRow(no) {
+        return this.getRows()[no].children
+    }
+    /**
+     * simpleTable.getCell(cellNo) - Get a cell for usage.
+     * @param {Number} cellNo 
+     */
+    getCell(cellNo) {
+        return this.cells[cellNo]
     }
 
     get cells() {
@@ -114,7 +130,7 @@ let simpleTable = class {
 
         for (let i = 0; i < this.getRows().length; i++) {
             for (let j = 0; j < this.getRows().length; j++) {
-                cells.push(this.getRows()[i].children[j]) // Get all the cells and add them to a arrat
+                cells.push(this.getRows()[i].children[j]) // Get all the cells and add them to a array
             }
         }
         return cells

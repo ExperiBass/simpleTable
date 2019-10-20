@@ -7,6 +7,7 @@
         <p>Drag me and click the buton to change the value of a cell!</p>
         <input type="range" min="1" max="5" id="slider"> <p id="display">0</p><br>
         <input type="button" value="click me!" onclick="myFunc()"><br>
+        <button onclick="row()">Click me too!</button>
         <script src='../src/vanilla/vanillaSimpleTable.js'></script>
         <script src='../src/vanilla/vanillaRandStr.js'></script>
         <script>
@@ -30,6 +31,25 @@
             function myFunc() {  
                 created.getCell(slider.value).innerText = `${randomString(4)}`
             }
+            function row() {
+                let rowz = created.getRow(2)
+                console.log(rowz)
+                let value
+                let obj = {
+                    a: 'heeey',
+                    b: 'hoooo',
+                    c: 'heeey',
+                    d: 'hoooo',
+                    e: 'hihi',
+                    f: 'hohoho',
+                    g: 'hehehehehe'
+                }
+                for (let i = 0; i < rowz.length; i++) {
+                    value = Object.values(obj)[i]
+                    rowz[i].innerText = value
+                    console.log(rowz[i], value)
+                }
+            }
 
         let created = new simpleTable({ 
             rows: 5, 
@@ -52,6 +72,6 @@
         
         func()
         </script>
-        <p id="demo">The table will be inserted after this text.</p>
+        <p id="demo">The table will be inserted before this text.</p>
     </body>
 </html>

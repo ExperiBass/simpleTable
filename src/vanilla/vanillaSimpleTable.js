@@ -104,9 +104,11 @@ let simpleTable = class {
     getRows() {      
         return this.table.rows
     }
-
+    getRow(no) {
+        return this.getRows()[no].children
+    }
     getCell(cellNo) {     
-        if (CellNo - 1 == -1) {
+        if (cellNo - 1 == -1) {
             return null
         }
         return this.cells[cellNo - 1]
